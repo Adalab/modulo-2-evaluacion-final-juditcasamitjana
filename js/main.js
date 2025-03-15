@@ -1,7 +1,5 @@
 "use strict";
 
-console.log("work");
-
 const inputSearch = document.querySelector(".js-input-search");
 const submitBtn = document.querySelector(".js-submit-btn");
 const resetBtn = document.querySelector(".js-reset-btn");
@@ -25,10 +23,29 @@ const createSerie = (serie) => {
             </li>`;
 }
 
+const createFavorite = (serie) => {
+    return `<li>
+                <div>
+                    <img src="${serie.image}"/>
+                </div>
+                <p>${serie.title}</p>
+                <div id="${serie.id}">
+                    Delete
+                </div>
+            </li>`;
+}
+
 const renderSeries = (series) => {
     seriesList.innerHTML = "";
     for(const serie of series) {
         seriesList.innerHTML += createSerie(serie);
+    }
+}
+
+const renderFavorites = (series) => {
+    favoritesList.innerHTML = "";
+    for(const serie of series) {
+        favoritesList.innerHTML += createFavorite(serie);
     }
 }
 
@@ -56,30 +73,18 @@ const handleClickSubmit = (e) => {
         })
 }
 
+const handleFavorite = (e) => {
+    const serieId = e.target.id;
 
+    if (!serieId) {
+        return;
+    }
+
+    const serie = series.find(serie => serie.id === parseInt(serieId));
+    favorites.push(serie);
+
+    renderFavorites(favorites);
+}
 
 submitBtn.addEventListener("click", handleClickSubmit);
-
-
-// function renderProduct(item) {
-//     listUl.innerHTML = `
-//         <li><h4>${item.name}</h4></li>
-//         <li><p>${item.description}</p></li>
-//         <li><img src="${item.url}" alt="producto"></li>
-//     `
-// }
-
-// const handleClick = (event) => {
-//     event.preventDefault();
-
-//     const product = {
-//         name: nameInput.value,
-//         description: descripInput.value,
-//         url: urlInput.value
-//     };
-
-//     renderProduct(product);
-// }
-
-// submitBtn.addEventListener("click", handleClick);
-
+seriesList.addEventListener("click", handleFavorite);
