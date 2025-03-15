@@ -13,12 +13,18 @@
         </header>
         <main>
             <fieldset>
-                <input type="text" />
-                <button type="submit">Buscar</button>
-                <button type="reset">Reset</button>
+                <input class="input-search js-input-search " type="text" placeholder="Serie"/>
+                <button class="submit-btn js-submit-btn" type="submit">Buscar</button>
+                <button class="reset-btn js-reset-btn" type="reset">Reset</button>
             </fieldset>
-            <section class="favorites"></section>
-            <section class="results"></section>
+            <section class="favorites">
+                <p>Series Favoritas</p>
+                <ul class="js-favorites-list"></ul>
+            </section>
+            <section class="results">
+                <p>Series Anime</p>
+                <ul class="js-series-list"></ul>
+            </section>
         </main>
         <footer></footer>
         <script src="./js/main.js"></script>
