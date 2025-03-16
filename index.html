@@ -3,32 +3,35 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <title>Buscador de series de Anime</title>
+        <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/4e18aa373e.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="./css/reset.css" />
         <link rel="stylesheet" href="./css/styles.css" />
     </head>
     <body>
         <header>
-            <h1>Buscador de Series de Anime</h1>
+            <h1>Buscador de Series Anime</h1>
         </header>
         <main>
             <form action="">
                 <fieldset>
-                    <input class="input-search js-input-search " type="text" placeholder="Serie"/>
+                    <input class="input-search js-input-search " type="text" placeholder="Ej: Naruto"/>
                     <button class="submit-btn js-submit-btn" type="submit">Buscar</button>
                     <button class="reset-btn js-reset-btn" type="reset">Reset</button>
                 </fieldset>
             </form>
-            <section class="favorites">
-                <p>Series Favoritas</p>
-                <ul class="js-favorites-list"></ul>
-            </section>
-            <section class="results">
-                <p>Series Anime</p>
-                <ul class="js-series-list"></ul>
-            </section>
+                <div class="container">
+                    <section class="favorites">
+                        <h2 class="title-favorites">Series Favoritas</h2>
+                        <ul class="favorites-list js-favorites-list"></ul>
+                    </section>
+                    <section class="series">
+                        <h2 class="title-series">Series Anime</h2>
+                        <ul class="series-list js-series-list"></ul>
+                    </section>
+                </div>            
         </main>
-        <footer></footer>
         <script src="./js/main.js"></script>
     </body>
 </html>

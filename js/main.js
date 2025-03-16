@@ -13,24 +13,28 @@ let favorites = [];
 
 const createSerie = (serie) => {
     return `<li class="${isFavorite(serie.id) ? 'favorite': ''}">
-                <div>
+                <div class="container-serie">
+                    <div>
                     <img src="${serie.image}"/>
-                </div>
-                <p>${serie.title}</p>
-                <div id="${serie.id}">
-                    Favorita
+                    </div>
+                    <p>${serie.title}</p>
+                    <div id="${serie.id}">
+                        <i id="${serie.id}" class="fa-solid fa-heart"></i>
+                    </div>
                 </div>
             </li>`;
 }
 
 const createFavorite = (serie) => {
     return `<li>
-                <div>
-                    <img src="${serie.image}"/>
-                </div>
-                <p>${serie.title}</p>
-                <div id="${serie.id}">
-                    Delete
+                <div class="container-favorite">
+                    <div>
+                        <img src="${serie.image}"/>
+                    </div>
+                    <p>${serie.title}</p>
+                    <div id="${serie.id}">
+                        <i id="${serie.id}" class="fa-solid fa-trash"></i>
+                    </div>
                 </div>
             </li>`;
 }
