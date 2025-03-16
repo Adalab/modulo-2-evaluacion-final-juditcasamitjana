@@ -12,7 +12,7 @@ let series = [];
 let favorites = [];
 
 const createSerie = (serie) => {
-    return `<li>
+    return `<li class="${isFavorite(serie.id) ? 'favorite': ''}">
                 <div>
                     <img src="${serie.image}"/>
                 </div>
@@ -49,6 +49,17 @@ const renderFavorites = (series) => {
     }
 }
 
+const loadFavorites = () => {
+    const storedFavorites = JSON.parse(localStorage.getItem('favorites'));
+
+    if (!storedFavorites) {
+        return;
+    }
+    
+    favorites = storedFavorites;
+    renderFavorites(favorites);
+}
+
 const handleClickSubmit = (e) => {
     e.preventDefault();
 
@@ -64,7 +75,6 @@ const handleClickSubmit = (e) => {
                     id: serie.mal_id,
                     title: serie.title,
                     image: originalImage === wrongImage ? imageNotFound : originalImage,
-                    favorite: false,
                 }
             })
 
@@ -73,18 +83,27 @@ const handleClickSubmit = (e) => {
         })
 }
 
-const handleFavorite = (e) => {
+const isFavorite = (serieId) => {
+    const serie = favorites.find(serie => serie.id === serieId);
+    return serie ? true : false;
+}
+
+const handleAddFavorite = (e) => {
     const serieId = e.target.id;
 
-    if (!serieId) {
+    if (!serieId || isFavorite(parseInt(serieId))) {
         return;
     }
 
     const serie = series.find(serie => serie.id === parseInt(serieId));
     favorites.push(serie);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
 
     renderFavorites(favorites);
+    renderSeries(series);
 }
 
 submitBtn.addEventListener("click", handleClickSubmit);
-seriesList.addEventListener("click", handleFavorite);
+seriesList.addEventListener("click", handleAddFavorite);
+
+loadFavorites();
