@@ -103,7 +103,23 @@ const handleAddFavorite = (e) => {
     renderSeries(series);
 }
 
+const handleDeleteFavorite = (e) => {
+    const serieId = e.target.id;
+
+    if (!serieId) {
+        return;
+    }
+
+    const newFavorites = favorites.filter(favorite => favorite.id !== parseInt(serieId));
+    favorites = newFavorites;
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+
+    renderFavorites(favorites);
+    renderSeries(series);
+}
+
 submitBtn.addEventListener("click", handleClickSubmit);
 seriesList.addEventListener("click", handleAddFavorite);
+favoritesList.addEventListener("click", handleDeleteFavorite);
 
 loadFavorites();
