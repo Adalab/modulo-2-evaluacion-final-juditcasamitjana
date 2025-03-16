@@ -118,8 +118,18 @@ const handleDeleteFavorite = (e) => {
     renderSeries(series);
 }
 
+const handleClickReset = () => {
+    localStorage.removeItem('favorites');
+    series = [];
+    favorites = [];
+
+    renderFavorites(favorites);
+    renderSeries(series);
+}
+
 submitBtn.addEventListener("click", handleClickSubmit);
 seriesList.addEventListener("click", handleAddFavorite);
 favoritesList.addEventListener("click", handleDeleteFavorite);
+resetBtn.addEventListener("click", handleClickReset);
 
 loadFavorites();
