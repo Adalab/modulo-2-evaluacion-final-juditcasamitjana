@@ -1,5 +1,5 @@
 header {
-    height: 200px;
+    height: 240px;
     background-image: url(/images/moujib-aghrout-s9ESRUFnKDg-unsplash.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -155,8 +155,7 @@ div.container-serie {
 }
 
 ul.series-list {
-    /* min-width: 766px; */
-    width: 100%;
+    min-width: 766px;
     min-height: 386px;
     background-color: rgb(197, 197, 197);
     border: 4px solid black;
