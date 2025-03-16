@@ -64,6 +64,11 @@ const loadFavorites = () => {
     renderFavorites(favorites);
 }
 
+const isFavorite = (serieId) => {
+    const serie = favorites.find(serie => serie.id === serieId);
+    return serie ? true : false;
+}
+
 const handleClickSubmit = (e) => {
     e.preventDefault();
 
@@ -85,11 +90,6 @@ const handleClickSubmit = (e) => {
             series = results;
             renderSeries(series);
         })
-}
-
-const isFavorite = (serieId) => {
-    const serie = favorites.find(serie => serie.id === serieId);
-    return serie ? true : false;
 }
 
 const handleAddFavorite = (e) => {
