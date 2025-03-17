@@ -25,4 +25,4 @@ Este proyecto te permite buscar series anime y añadir tus favoritas para tenerl
 
 Echas de menos que el kit haga algo en concreto? Pidelo sin problema a través de las issues o si te animas a mejorarlo mándanos un PR 😜
 
-**¡Disfruta explorando y descubriendo nuevas películas!** 🛋️📺🍿
+**¡Disfruta explorando y descubriendo nuevas series!** 🛋️📺🍿
