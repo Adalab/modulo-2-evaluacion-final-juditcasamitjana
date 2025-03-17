@@ -1,5 +1,5 @@
 
-GitHub Pages: RELLENAR
+GitHub Pages: http://beta.adalab.es/modulo-2-evaluacion-final-juditcasamitjana/
 
 # Buscador de series de Anime 🛋️📺🍿
 
